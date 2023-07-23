@@ -14,7 +14,6 @@ const Movies = () => {
 
   const searchQuery = searchParams.get('query');
 
-
   useEffect(() => {
     if (!searchQuery) return;
 
@@ -36,6 +35,7 @@ const Movies = () => {
   const onSubmit = event => {
     event.preventDefault();
     const searchValue = event.target.children.search.value;
+    searchValue.trim() !== '' &&
     setSearchParams({ query: searchValue });
   };
 
@@ -66,8 +66,7 @@ const Movies = () => {
 
 {movies?.length > 0 && (
   <MoviesList moviesList={movies} />
-)}
-      
+)}   
     </Section>
   );
 };

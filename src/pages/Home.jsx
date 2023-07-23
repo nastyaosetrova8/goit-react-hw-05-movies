@@ -31,13 +31,14 @@ const Home = () => {
           <p>Opps, some error occured... Error: {error}</p>
         </div>
       )}
-      {isLoading ? (
+      {isLoading && (
         <div>
           <Loader />
         </div>
-      ) : (
-        <MoviesList moviesList={moviesList} />
       )}
+      {moviesList?.length > 0 && (
+        <MoviesList moviesList={moviesList} />
+        )}
     </section>
   );
 };
